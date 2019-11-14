@@ -67,7 +67,7 @@ export class SchedulePage implements OnInit {
     }
   }
 
-  async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
+  async addFavorite(slidingItem: any, sessionData: any) {
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
       // prompt them to remove it
@@ -93,7 +93,7 @@ export class SchedulePage implements OnInit {
 
   }
 
-  async removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
+  async removeFavorite(slidingItem: any, sessionData: any, title: string) {
     const alert = await this.alertCtrl.create({
       header: title,
       message: 'Would you like to remove this session from your favorites?',
@@ -123,7 +123,7 @@ export class SchedulePage implements OnInit {
     await alert.present();
   }
 
-  async openSocial(network: string, fab: HTMLIonFabElement) {
+  async openSocial(network: string, fab: any) {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500
